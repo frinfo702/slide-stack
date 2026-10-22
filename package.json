@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "workspaces": ["themes/*"],
+  "type": "module",
+  "scripts": {
+    "dev": "slidev example.md",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0"
+  }
+}

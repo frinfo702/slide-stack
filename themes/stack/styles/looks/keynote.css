@@ -1,0 +1,61 @@
+/* keynote — after an Apple event: black stage, SF, one idea per slide, gradient type on the big moments. */
+:where(.slidev-page:has(> .look[data-look="keynote"])) {
+  --bg: #000;
+  --fg: #f5f5f7;
+  --muted: #86868b;
+  --accent: #2997ff;
+  --line: #333336;
+  --surface: #1d1d1f;
+  --radius: 14px;
+  --font-body: -apple-system, 'SF Pro Text', 'Inter', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --font-display: -apple-system, 'SF Pro Display', 'Inter', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, 'JetBrains Mono', monospace;
+  --display-weight: 600;
+  --display-tracking: -0.015em;
+  --h1: 44px;
+  --hero: 72px;
+  --fact: 160px;
+  --body: 19px;
+  --gradient: linear-gradient(100deg, #0090f7 0%, #ba62fc 45%, #f2416b 75%, #f55600 100%);
+  --shiki-token-keyword: #ff7ab2;
+  --shiki-token-string: #fc6a5d;
+  --shiki-token-function: #67b7a4;
+  --shiki-token-constant: #d9c97c;
+
+  & .slidev-layout { text-align: center; }
+  /* Dense content reads left-aligned; only the slide title stays centered */
+  & .slidev-layout:is(.default, .two-columns) { text-align: left; }
+  & .slidev-layout.default h1 { text-align: center; margin-bottom: 1em; }
+
+  & .slidev-layout.cover {
+    justify-content: safe center;
+    align-items: center;
+    & h1 { max-width: 20ch; }
+  }
+
+  & .slidev-layout:is(.fact, .statement, .section) h1 {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  & .slidev-layout.fact {
+    justify-content: safe center;
+    & h1 { font-weight: 700; letter-spacing: -0.04em; }
+    & p { margin-inline: auto; font-size: 1em; }
+  }
+
+  & .slidev-layout.quote {
+    justify-content: safe center;
+    & blockquote { margin-inline: auto; font-weight: 600; font-size: 38px; }
+  }
+
+  & p, & li { color: var(--muted); }
+  & strong { color: var(--fg); font-weight: 600; }
+
+  & .look .page-number {
+    font-family: var(--font-body);
+    font-size: 11px;
+  }
+}

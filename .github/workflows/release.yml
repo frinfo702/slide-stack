@@ -1,0 +1,98 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Version bump
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+      target:
+        description: Package directory under themes/ (all = only packages changed since their last version bump)
+        type: choice
+        options: [all, stack]
+        default: all
+
+permissions:
+  contents: write
+  id-token: write # npm trusted publishing (OIDC) + provenance
+
+concurrency: release
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm >= 11.5.1
+      - run: npm install -g npm@latest
+
+      - name: Pick packages
+        id: pick
+        env:
+          TARGET: ${{ inputs.target }}
+        run: |
+          set -euo pipefail
+          if [ "$TARGET" = all ]; then candidates=(themes/*/); else candidates=("themes/$TARGET/"); fi
+          picked=()
+          for dir in "${candidates[@]}"; do
+            dir=${dir%/}
+            [ -f "$dir/package.json" ] || { echo "::error::$dir/package.json not found"; exit 1; }
+            if [ "$TARGET" = all ]; then
+              # The last commit that touched the "version" line is the previous release.
+              last=$(git log -1 --format=%H -G'"version":' -- "$dir/package.json")
+              if [ -n "$last" ] && git diff --quiet "$last" HEAD -- "$dir"; then
+                echo "skip $dir: no changes since ${last:0:7}"
+                continue
+              fi
+            fi
+            picked+=("$dir")
+          done
+          echo "dirs=${picked[*]}" >> "$GITHUB_OUTPUT"
+          if [ ${#picked[@]} -eq 0 ]; then echo "::notice::Nothing to release"; fi
+
+      - name: Bump versions and commit
+        id: bump
+        if: steps.pick.outputs.dirs != ''
+        env:
+          BUMP: ${{ inputs.bump }}
+          DIRS: ${{ steps.pick.outputs.dirs }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          tags=()
+          for dir in $DIRS; do
+            (cd "$dir" && npm version "$BUMP" --no-git-tag-version --no-workspaces-update)
+            name=$(node -p "require('./$dir/package.json').name")
+            version=$(node -p "require('./$dir/package.json').version")
+            git add "$dir/package.json"
+            tags+=("$name@$version")
+          done
+          git commit -m "release: ${tags[*]}"
+          for tag in "${tags[@]}"; do git tag -a "$tag" -m "$tag"; done # annotated, so --follow-tags pushes them
+          echo "tags=${tags[*]}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish
+        if: steps.pick.outputs.dirs != ''
+        env:
+          DIRS: ${{ steps.pick.outputs.dirs }}
+        run: |
+          set -euo pipefail
+          for dir in $DIRS; do
+            (cd "$dir" && npm publish --provenance --access public)
+          done
+
+      # Pushed only after a successful publish, so a failed publish leaves the repo untouched.
+      - name: Push commit and tags
+        if: steps.pick.outputs.dirs != ''
+        run: git push origin HEAD --follow-tags

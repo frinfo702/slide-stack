@@ -1,0 +1,62 @@
+/* ledger — after Ramp: off-white paper, tight grotesk, lime used like a highlighter on numbers. */
+:where(.slidev-page:has(> .look[data-look="ledger"])) {
+  --bg: #f4f3ee;
+  --fg: #1a1a18;
+  --muted: #6b6a63;
+  --accent: #e4f222;
+  --line: #d9d7cd;
+  --surface: #eae8e0;
+  --radius: 4px;
+  --font-body: 'Inter Tight', 'Noto Sans JP', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-leading: 1;
+  --h1: 42px;
+  --hero: 68px;
+  --fact: 148px;
+  --body: 19px;
+  --shiki-token-keyword: #5b6400;
+  --shiki-token-constant: #5b6400;
+  --shiki-token-string: #3d3d38;
+
+  font-variant-numeric: tabular-nums;
+
+  & li::marker { color: var(--fg); }
+  & a { color: var(--fg); text-decoration-color: var(--accent); text-decoration-thickness: 3px; }
+
+  /* Lime is a marker pen, not a text color */
+  & strong {
+    font-weight: 600;
+    background: linear-gradient(transparent 58%, var(--accent) 58% 92%, transparent 92%);
+    padding: 0 0.1em;
+  }
+
+  & .slidev-layout.cover h1 { font-size: 76px; }
+
+  & .slidev-layout.fact {
+    & h1 {
+      font-weight: 500;
+      letter-spacing: -0.06em;
+      display: inline-block;
+      background: linear-gradient(transparent 70%, var(--accent) 70% 88%, transparent 88%);
+    }
+  }
+
+  & table {
+    font-size: 0.82em;
+    & th { font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    & td:not(:first-child), & th:not(:first-child) { text-align: right; }
+    & tr:last-child td { border-bottom: 1px solid var(--fg); }
+  }
+
+  & .look .page-number {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--fg);
+    padding: 1px 6px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+}

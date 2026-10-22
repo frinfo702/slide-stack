@@ -1,0 +1,55 @@
+/* cloudflare — after Cloudflare: warm black, cream type, a dithered orange panel for the big moments, dashed rules. */
+:where(.slidev-page:has(> .look[data-look="cloudflare"])) {
+  --bg: #151414;
+  --fg: #fffbf5;
+  --muted: #a89f99;
+  --accent: #ff6a1f;
+  --line: rgb(255 251 245 / 0.14);
+  --surface: #211f1e;
+  --radius: 12px;
+  --font-body: 'Hanken Grotesk', 'Noto Sans JP', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --display-weight: 500;
+  --display-tracking: -0.025em;
+  --h1: 40px;
+  --hero: 60px;
+  --body: 19px;
+  --panel: radial-gradient(rgb(255 251 245 / 0.13) 0.8px, transparent 1.2px) 0 0 / 5px 5px,
+    linear-gradient(160deg, #ff7a2e, #ff5a14 55%, #f6821f);
+  --shiki-token-keyword: #ff8a4c;
+  --shiki-token-constant: #fbad41;
+  --shiki-token-string: #f0e3de;
+  --shiki-token-function: #fffbf5;
+
+  & p, & li { color: #e8dfd9; }
+  & li::marker { color: var(--accent); }
+  & ul { list-style: square; }
+  & strong { color: var(--fg); font-weight: 600; }
+  & a { color: #ff8a4c; }
+  & hr { border-top: 1px dashed var(--line); }
+  & :is(th, td) { border-bottom: 1px dashed var(--line); }
+  & th { color: var(--muted); font-weight: 500; }
+
+  /* The orange panel: inset, rounded, with a fine dither like the hero on cloudflare.com */
+  & .slidev-layout:is(.cover, .section, .end) {
+    background: var(--panel);
+    border-radius: 18px;
+    margin: 10px;
+    height: calc(100% - 20px);
+    & h1, & p { color: var(--fg); }
+  }
+
+  & .slidev-layout.cover {
+    justify-content: safe center;
+    align-items: center;
+    text-align: center;
+    & h1 { max-width: 20ch; }
+    & p { color: rgb(255 251 245 / 0.85); }
+  }
+
+  & .slidev-layout.fact h1 { color: var(--accent); letter-spacing: -0.045em; }
+
+  & .slidev-layout.statement h1 { max-width: 20ch; }
+
+  &:has(.slidev-layout:is(.cover, .section, .end)) .look .page-number { color: rgb(255 251 245 / 0.85); right: 34px; bottom: 26px; }
+}

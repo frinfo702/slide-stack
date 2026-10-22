@@ -1,0 +1,88 @@
+/* tactical — after Anduril / Palantir: dark field, condensed caps, HUD corners, a ruler that carries the page. */
+:where(.slidev-page:has(> .look[data-look="tactical"])) {
+  --bg: #0d0e0c;
+  --fg: #e6e6e0;
+  --muted: #7c7e76;
+  --accent: #ffb000;
+  --line: #2a2c27;
+  --surface: #151613;
+  --radius: 0;
+  --font-body: 'IBM Plex Sans Condensed', 'Noto Sans JP', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --display-weight: 600;
+  --display-tracking: 0.02em;
+  --display-case: uppercase;
+  --display-leading: 1;
+  --h1: 36px;
+  --hero: 60px;
+  --body: 18px;
+  --shiki-token-keyword: #ffb000;
+  --shiki-token-string: #c9c9bd;
+  --shiki-token-function: #e6e6e0;
+
+  & p, & li { color: #b7b8b0; }
+  & ul { list-style: none; padding-left: 0; }
+  & ul > li { padding-left: 1.2em; position: relative; }
+  & ul > li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+  & strong { color: var(--fg); }
+  & .slidev-code { border-left: 2px solid var(--accent); }
+  & th { font-family: var(--font-mono); font-weight: 400; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  & .slidev-layout.cover p,
+  & .slidev-layout.fact p {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  & .slidev-layout.fact h1 { font-family: var(--font-mono); font-weight: 400; letter-spacing: -0.04em; }
+
+  /* HUD corners */
+  & .look {
+    --c: rgb(230 230 224 / 0.5);
+    background:
+      linear-gradient(var(--c), var(--c)) 18px 18px / 18px 1px,
+      linear-gradient(var(--c), var(--c)) 18px 18px / 1px 18px,
+      linear-gradient(var(--c), var(--c)) calc(100% - 18px) 18px / 18px 1px,
+      linear-gradient(var(--c), var(--c)) calc(100% - 18px) 18px / 1px 18px,
+      linear-gradient(var(--c), var(--c)) 18px calc(100% - 18px) / 18px 1px,
+      linear-gradient(var(--c), var(--c)) 18px calc(100% - 18px) / 1px 18px,
+      linear-gradient(var(--c), var(--c)) calc(100% - 18px) calc(100% - 18px) / 18px 1px,
+      linear-gradient(var(--c), var(--c)) calc(100% - 18px) calc(100% - 18px) / 1px 18px;
+    background-repeat: no-repeat;
+  }
+
+  /* Ruler along the bottom: one tick per page, the amber marker sits on the current one */
+  & .look::after,
+  & .look::before {
+    content: '';
+    position: absolute;
+    left: 64px;
+    right: 150px;
+    bottom: 24px;
+  }
+  & .look::after {
+    height: 4px;
+    /* gradient stops avoid the per-tile rounding that background-size repeats would drift by */
+    background: repeating-linear-gradient(90deg, rgb(230 230 224 / 0.35) 0 1px, transparent 1px calc((100% - 1px) / var(--steps)));
+  }
+  & .look::before {
+    right: auto;
+    width: 3px;
+    height: 9px;
+    translate: -1px 0;
+    left: calc(64px + (100% - 64px - 150px - 1px) * var(--step));
+    background: var(--accent);
+    z-index: 1;
+  }
+
+  & .look .page-number {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--fg);
+    right: 64px;
+    bottom: 20px;
+  }
+}

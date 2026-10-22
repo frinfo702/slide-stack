@@ -1,0 +1,55 @@
+/* orbital — after SpaceX / xAI: black void, DIN capitals, an Earth-limb arc. */
+:where(.slidev-page:has(> .look[data-look="orbital"])) {
+  --bg: #000;
+  --fg: #fff;
+  --muted: #8a8a8a;
+  --accent: #fff;
+  --line: rgb(255 255 255 / 0.16);
+  --surface: #0c0c0c;
+  --radius: 0;
+  --font-body: 'D-DIN', 'Noto Sans JP', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --display-weight: 700;
+  --display-tracking: 0.08em;
+  --display-case: uppercase;
+  --display-leading: 1.02;
+  --h1: 34px;
+  --hero: 58px;
+  --body: 18px;
+  --shiki-token-keyword: #fff;
+  --shiki-token-string: #a8a8a8;
+  --shiki-token-function: #fff;
+
+  & p, & li { color: rgb(255 255 255 / 0.78); }
+  & li::marker { color: var(--muted); }
+  & ul { list-style: square; }
+  & strong { color: #fff; font-weight: 700; }
+  & .slidev-code { border: 1px solid var(--line); }
+
+  /* The limb of a planet, seen from orbit */
+  & .slidev-layout:is(.cover, .section, .end) {
+    background:
+      radial-gradient(ellipse 150% 170% at 50% 252%, #050607 99.4%, rgb(255 255 255 / 0.7) 99.75%, rgb(120 160 255 / 0.22) 100.6%, transparent 106%),
+      #000;
+  }
+
+  & .slidev-layout.cover {
+    justify-content: safe center;
+    & h1 { max-width: none; }
+    & p { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+  }
+
+  & .slidev-layout:is(.statement, .section) h1 { letter-spacing: 0.14em; }
+
+  & .slidev-layout.fact h1 { letter-spacing: 0; font-weight: 400; }
+  & .slidev-layout.fact p { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  & .look .page-number {
+    font-family: 'D-DIN', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: #fff;
+    right: 32px;
+    bottom: 22px;
+  }
+}

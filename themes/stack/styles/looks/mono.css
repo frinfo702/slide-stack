@@ -1,0 +1,89 @@
+/* mono — after paper.design/mono: Paper Mono everywhere, specimen-sheet blue grid, little windows with a hard blue shadow. */
+:where(.slidev-page:has(> .look[data-look="mono"])) {
+  --bg: #f6f6f3;
+  --fg: #222;
+  --muted: #85857f;
+  --accent: #4b8bf5;
+  --blue-line: #dbe5f4;
+  --blue-edge: #9bbce8;
+  --line: #d9d9d3;
+  --surface: #fff;
+  --radius: 0;
+  --font-body: 'Paper Mono', 'Noto Sans JP', monospace;
+  --font-mono: 'Paper Mono', monospace;
+  --display-weight: 400;
+  --display-tracking: -0.03em;
+  --display-leading: 1.05;
+  --h1: 36px;
+  --hero: 64px;
+  --fact: 150px;
+  --body: 16px;
+  --shiki-token-keyword: #2f6fe0;
+  --shiki-token-string: #6b6b66;
+  --shiki-token-constant: #2f6fe0;
+
+  font-feature-settings: 'calt', 'zero';
+
+  /* Column guides in the margin, clear of the text (like grid) */
+  & .slidev-layout {
+    background:
+      linear-gradient(var(--blue-line), var(--blue-line)) 32px 0 / 1px 100% no-repeat,
+      linear-gradient(var(--blue-line), var(--blue-line)) calc(100% - 32px) 0 / 1px 100% no-repeat;
+  }
+
+  /* Specimen grid only where the slide is mostly type */
+  & .slidev-layout:is(.cover, .section, .fact, .statement) {
+    background:
+      linear-gradient(var(--blue-line) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, var(--blue-line) 1px, transparent 1px) 0 0 / 24px 24px;
+  }
+
+  & :is(h1, h2) { font-weight: 400; }
+  & .slidev-layout:is(.cover, .section, .fact, .statement) h1 {
+    text-shadow: 4px 4px 0 #c3d6f3;
+  }
+
+  & ul { list-style: none; padding-left: 0; }
+  & ul > li { padding-left: 2ch; position: relative; }
+  & ul > li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+  & strong { font-weight: 600; }
+
+  /* Windows */
+  & .slidev-code-wrapper,
+  & table,
+  & blockquote {
+    background: var(--surface);
+    border: 1px solid var(--blue-edge);
+    box-shadow: 3px 3px 0 var(--blue-edge);
+  }
+  & .slidev-code-wrapper { position: relative; padding-top: 30px; }
+  & .slidev-code-wrapper::before {
+    content: '×';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 30px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--blue-edge);
+    font-size: 15px;
+    line-height: 29px;
+    text-align: right;
+    color: var(--fg);
+  }
+  & .slidev-code { background: transparent; border-radius: 0; }
+  & blockquote { padding: 14px 16px; }
+  & .slidev-layout.quote blockquote { padding: 28px 32px; font-size: 28px; max-width: 30ch; }
+  & table { border-collapse: separate; border-spacing: 0; font-size: 14px; }
+  & :is(th, td) { border-bottom-color: var(--blue-line); }
+  & th { font-weight: 400; color: var(--fg); border-bottom: 1px solid var(--blue-edge); }
+  & tr:last-child td { border-bottom: 0; }
+
+  & .slidev-layout.cover p,
+  & .slidev-layout.fact p { color: var(--fg); font-size: 14px; }
+
+  & .look .page-number {
+    font-family: 'Paper Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    bottom: 16px;
+  }
+}

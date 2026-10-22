@@ -1,0 +1,44 @@
+{
+  "name": "@frinfo702/slidev-theme-stack",
+  "version": "0.1.0",
+  "description": "A Slidev theme with 13 brand-inspired looks, switchable per slide",
+  "license": "MIT",
+  "author": "Kenichiro Goto",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frinfo702/slide-stack.git",
+    "directory": "themes/stack"
+  },
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "files": [
+    "components",
+    "fonts",
+    "setup",
+    "styles",
+    "slide-top.vue"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "slidev": ">=53.0.0"
+  },
+  "dependencies": {
+    "@slidev/types": "^53.0.0",
+    "shiki": "^4.5.0"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "fonts": {
+        "provider": "none"
+      },
+      "themeConfig": {
+        "look": "plain"
+      }
+    }
+  }
+}

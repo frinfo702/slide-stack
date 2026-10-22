@@ -1,0 +1,57 @@
+/* mercury — after Mercury: calm light pages, an indigo accent, and a misty dawn for covers and sections. */
+:where(.slidev-page:has(> .look[data-look="mercury"])) {
+  --bg: #f7f7fa;
+  --fg: #1e1e2a;
+  --muted: #6a6a80;
+  --accent: #5266eb;
+  --line: #e2e2ea;
+  --surface: #ededf3;
+  --radius: 12px;
+  --font-body: 'Albert Sans', 'Noto Sans JP', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --display-weight: 480;
+  --display-tracking: -0.01em;
+  --display-leading: 1.12;
+  --h1: 38px;
+  --hero: 58px;
+  --body: 19px;
+  --dawn:
+    radial-gradient(ellipse 70% 55% at 22% 12%, rgb(236 186 160 / 0.75), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 82% 20%, rgb(160 156 205 / 0.6), transparent 70%),
+    radial-gradient(ellipse 120% 60% at 50% 105%, #2a2d33, transparent 75%),
+    linear-gradient(180deg, #8d8ea6 0%, #5c6070 55%, #2b2e36 100%);
+  --shiki-token-keyword: #5266eb;
+  --shiki-token-string: #3d7a5c;
+  --shiki-token-constant: #b4542d;
+
+  & li::marker { color: var(--accent); }
+  & strong { font-weight: 600; }
+  & table { border-collapse: separate; border-spacing: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  & tr:last-child td { border-bottom: 0; }
+
+  & .slidev-layout:is(.cover, .section, .end) {
+    background: var(--dawn);
+    & h1 { color: #ededf3; }
+    & p { color: rgb(237 237 243 / 0.78); }
+  }
+
+  & .slidev-layout.cover {
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-top: 96px;
+    & h1 { max-width: 22ch; }
+  }
+
+  & .slidev-layout.fact h1 { font-weight: 380; letter-spacing: -0.04em; color: var(--fg); }
+
+  /* Page number in a soft pill, like Mercury's controls */
+  & .look .page-number {
+    font-family: var(--font-body);
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgb(30 30 42 / 0.06);
+  }
+  &:has(.slidev-layout:is(.cover, .section, .end)) .look .page-number { color: #ededf3; background: rgb(255 255 255 / 0.14); }
+}

@@ -1,0 +1,51 @@
+/* clay — after Anthropic: ivory page, editorial serif heads, a clay accent, and soft full-bleed color panels for sections. */
+:where(.slidev-page:has(> .look[data-look="clay"])) {
+  --bg: #faf9f5;
+  --fg: #141413;
+  --muted: #6b6a64;
+  --accent: #d97757;
+  --line: #e3dfd3;
+  --surface: #f0eee6;
+  --radius: 8px;
+  --font-body: 'Instrument Sans', 'Noto Sans JP', sans-serif;
+  --font-display: 'Source Serif 4', 'Noto Serif JP', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --display-weight: 400;
+  --display-tracking: -0.015em;
+  --display-leading: 1.1;
+  --h1: 42px;
+  --hero: 64px;
+  --body: 19px;
+  --pad-x: 80px;
+  --pad-y: 64px;
+  --shiki-token-keyword: #b8572f;
+  --shiki-token-string: #5b7a4a;
+  --shiki-token-function: #141413;
+
+  & :is(h1, h2, h3) { font-optical-sizing: auto; }
+  & li::marker { color: var(--accent); }
+  & blockquote { border-left-color: var(--accent); font-family: var(--font-display); font-size: 1.15em; }
+
+  & .slidev-layout.cover {
+    & h1 { font-size: 68px; max-width: 20ch; }
+  }
+
+  /* Section panels rotate through the brand's soft secondaries via `class: kraft | cactus | heather` */
+  & .slidev-layout.section {
+    background: #d4a27f;
+    &.cactus { background: #bcd1ca; }
+    &.heather { background: #cbcadb; }
+    & p { color: rgb(20 20 19 / 0.7); }
+  }
+
+  & .slidev-layout.quote blockquote { font-style: italic; font-size: 38px; }
+
+  & .slidev-layout.fact h1 { font-weight: 300; letter-spacing: -0.03em; color: var(--accent); }
+
+  & .look .page-number {
+    font-family: var(--font-display);
+    font-size: 14px;
+    right: 48px;
+    bottom: 22px;
+  }
+}

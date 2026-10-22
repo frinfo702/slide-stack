@@ -1,0 +1,61 @@
+/* manuscript — reading a paper aloud: white page, Newsreader, numbered figures, oxblood rules. */
+:where(.slidev-page:has(> .look[data-look="manuscript"])) {
+  --bg: #fff;
+  --fg: #1c1c1c;
+  --muted: #6e6e6e;
+  --accent: #8c1c13;
+  --line: #d6d6d6;
+  --surface: #f6f5f3;
+  --radius: 0;
+  --font-body: 'Newsreader', 'Noto Serif JP', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --display-weight: 500;
+  --display-tracking: -0.01em;
+  --display-leading: 1.12;
+  --h1: 38px;
+  --hero: 56px;
+  --body: 19px;
+  --pad-x: 88px;
+  --shiki-token-keyword: #8c1c13;
+  --shiki-token-string: #4a5d3a;
+
+  counter-reset: figure;
+  font-optical-sizing: auto;
+
+  & .slidev-layout { line-height: 1.6; }
+  & li::marker { color: var(--muted); }
+  & em { font-style: italic; }
+  & h3 { font-style: italic; font-weight: 400; }
+
+  /* <figure> captions are numbered in order of appearance on the slide */
+  & figure { margin: 0; counter-increment: figure; }
+  & figcaption { font-size: 0.78em; color: var(--muted); margin-top: 0.5em; }
+  & figcaption::before { content: 'Figure ' counter(figure) '. '; font-weight: 600; color: var(--fg); }
+
+  & blockquote { border-left: 1px solid var(--accent); font-style: italic; }
+
+  & sup, & .cite { color: var(--accent); }
+
+  & table { font-size: 0.8em; border-top: 1.5px solid var(--fg); border-bottom: 1.5px solid var(--fg); }
+  & th { color: var(--fg); border-bottom: 0.75px solid var(--fg); font-weight: 600; }
+  & td { border-bottom: 0; }
+
+  & .slidev-layout.cover {
+    justify-content: safe center;
+    align-items: center;
+    text-align: center;
+    & h1 { font-size: 46px; max-width: 24ch; }
+    & p { font-variant: small-caps; letter-spacing: 0.04em; color: var(--fg); margin: 0.1em 0; }
+    & p:last-child { font-variant: normal; font-style: italic; color: var(--muted); font-size: 0.85em; margin-top: 1em; }
+  }
+
+  & .slidev-layout.section h1 { font-style: italic; font-weight: 400; }
+  & .slidev-layout.quote blockquote { font-style: italic; font-weight: 400; }
+
+  & .look .page-number {
+    font-family: var(--font-body);
+    font-size: 15px;
+    right: 48px;
+    color: var(--fg);
+  }
+}
