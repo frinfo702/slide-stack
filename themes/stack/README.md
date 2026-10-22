@@ -1,4 +1,4 @@
-# @frinfo702/slidev-theme-stack
+# @kenichirog/slidev-theme-stack
 
 A [Slidev](https://sli.dev) theme with 13 looks. Pick one for the whole deck, or switch per slide.
 The looks echo the visual language of well-known tech brands; no logos or trademarks are included.
@@ -6,14 +6,14 @@ The looks echo the visual language of well-known tech brands; no logos or tradem
 ## Install
 
 ```bash
-npm i -D @frinfo702/slidev-theme-stack
+npm i -D @kenichirog/slidev-theme-stack
 ```
 
 ## Use
 
 ```yaml
 ---
-theme: '@frinfo702/slidev-theme-stack'
+theme: '@kenichirog/slidev-theme-stack'
 themeConfig:
   look: ledger      # deck-wide default
 ---
