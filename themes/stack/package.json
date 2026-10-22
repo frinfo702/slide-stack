@@ -1,6 +1,6 @@
 {
   "name": "@kenichirog/slidev-theme-stack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Slidev theme with 13 brand-inspired looks, switchable per slide",
   "license": "MIT",
   "author": "Kenichiro Goto",
