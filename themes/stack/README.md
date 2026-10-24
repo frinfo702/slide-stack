@@ -24,21 +24,13 @@ layout: fact
 ---
 ```
 
-| look | inspired by |
-|---|---|
-| `orbital` | SpaceX / xAI |
-| `ledger` | Ramp |
-| `nightshift` | Linear |
-| `grid` | Vercel |
-| `cloudflare` | Cloudflare |
-| `clay` | Anthropic |
-| `keynote` | Apple |
-| `tactical` | Anduril |
-| `dotmatrix` | Nothing |
-| `mono` | paper.design/mono |
-| `mercury` | Mercury |
-| `manuscript` | paper reading |
-| `plain` | neutral baseline |
+## Looks
+
+`orbital` · `ledger` · `nightshift` · `grid` · `cloudflare` · `clay` · `keynote` · `tactical` · `dotmatrix` · `mono` · `mercury` · `manuscript` · `plain`
+
+## Sample
+
+[Sample deck (PDF)](https://github.com/frinfo702/slide-stack/blob/main/themes/stack/sample.pdf) shows every look and layout, both components, English and Japanese text, tables, math, and code. The source is [example.md](https://github.com/frinfo702/slide-stack/blob/main/example.md); regenerate it with `bun run export`.
 
 Every slide gets a page number. Slidev's built-in layouts (`cover`, `section`, `statement`, `fact`, `quote`, `two-cols`, `end`, ...) are restyled per look.
 In `clay`, `class: cactus` or `class: heather` on a `section` slide changes the panel color.

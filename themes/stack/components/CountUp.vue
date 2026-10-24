@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useIsSlideActive, useSlideContext } from '@slidev/client'
+import { useIsSlideActive, useNav, useSlideContext } from '@slidev/client'
 import { onBeforeUnmount, ref, watch } from 'vue'
 
 const props = withDefaults(defineProps<{ to: number, decimals?: number, duration?: number }>(), {
@@ -8,13 +8,14 @@ const props = withDefaults(defineProps<{ to: number, decimals?: number, duration
 })
 
 const { $renderContext } = useSlideContext()
+const { isPrintMode } = useNav()
 const active = useIsSlideActive()
 const value = ref(props.to)
 let raf = 0
 
 function run() {
   cancelAnimationFrame(raf)
-  if ($renderContext.value !== 'slide' || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if ($renderContext.value !== 'slide' || isPrintMode.value || matchMedia('(prefers-reduced-motion: reduce)').matches) {
     value.value = props.to
     return
   }
