@@ -8,11 +8,11 @@
   --surface: #e0e0dd;
   --radius: 14px;
   --font-body: 'Space Grotesk', 'Noto Sans JP', sans-serif;
-  --font-display: 'Doto', 'Noto Sans JP', sans-serif;
+  --font-display: var(--font-body);
   --font-mono: 'Space Mono', monospace;
-  --display-weight: 800;
-  --display-tracking: 0;
-  --display-leading: 1;
+  --display-weight: 500;
+  --display-tracking: -0.02em;
+  --display-leading: 1.1;
   --h1: 46px;
   --hero: 76px;
   --fact: 170px;

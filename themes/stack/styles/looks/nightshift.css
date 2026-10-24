@@ -1,54 +1,90 @@
-/* nightshift — after Linear: graphite, Inter display, a single indigo glow from above. */
+/* nightshift — after Linear: near-black canvas, neutral type, hairlines and a single lavender accent. */
 :where(.slidev-page:has(> .look[data-look="nightshift"])) {
-  --bg: #08090a;
+  --bg: #010102;
   --fg: #f7f8f8;
   --muted: #8a8f98;
   --accent: #5e6ad2;
-  --line: rgb(255 255 255 / 0.08);
-  --surface: #121314;
-  --radius: 10px;
+  --line: #23252a;
+  --surface: #0f1011;
+  --radius: 12px;
+  --slidev-code-radius: 16px;
   --font-body: 'Inter', 'Noto Sans JP', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --display-weight: 560;
+  --display-weight: 600;
   --display-tracking: -0.025em;
-  --h1: 38px;
-  --hero: 60px;
+  --display-leading: 1.15;
+  --h1: 40px;
+  --h2: 28px;
+  --h3: 22px;
+  --hero: 56px;
   --body: 18px;
-  --shiki-token-keyword: #a5acf0;
-  --shiki-token-string: #b4bcd0;
+  --shiki-token-keyword: #828fff;
+  --shiki-token-string: #d0d6e0;
   --shiki-token-function: #f7f8f8;
-  --shiki-token-constant: #e2b86b;
+  --shiki-token-constant: #d0d6e0;
 
   font-feature-settings: 'cv01', 'ss03';
+  letter-spacing: -0.005em;
 
-  & .slidev-layout {
-    background: radial-gradient(ellipse 60% 45% at 50% -8%, rgb(94 106 210 / 0.22), transparent 70%);
-  }
-
-  /* Headings fade from white into the page, like Linear's hero type */
-  & :is(h1, h2) {
-    background: linear-gradient(180deg, #f7f8f8 30%, rgb(247 248 248 / 0.55));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  & p, & li { color: #b4bcd0; }
+  & p, & li { color: #d0d6e0; }
   & li::marker { color: var(--muted); }
-  & strong { color: var(--fg); font-weight: 560; }
+  & strong { color: var(--fg); font-weight: 600; }
+  & h2 { letter-spacing: -0.6px; line-height: 1.2; }
+  & h3 { font-weight: 500; letter-spacing: -0.4px; line-height: 1.25; }
 
-  & .slidev-code,
-  & table {
+  & :not(pre) > code {
+    background: #141516;
+    border-radius: 4px;
+  }
+
+  & .slidev-code {
     border: 1px solid var(--line);
+    border-radius: 16px;
     box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
   }
-  & table { border-radius: var(--radius); border-collapse: separate; border-spacing: 0; overflow: hidden; }
+
+  & table {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+  }
+  & th { background: #141516; }
   & :is(th, td) { border-bottom-color: var(--line); }
   & tr:last-child td { border-bottom: 0; }
 
+  & blockquote {
+    padding: 16px 24px;
+    background: var(--surface);
+    border-left-color: var(--line);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+
   & .slidev-layout.cover {
-    & h1 { font-size: 64px; }
+    & h1 { font-size: 80px; letter-spacing: -3px; line-height: 1.05; }
+    & p { color: var(--muted); }
+  }
+
+  & .slidev-layout.section h1 { letter-spacing: -1.8px; line-height: 1.1; }
+
+  & .slidev-layout.quote blockquote {
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--fg);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.6px;
   }
 
   & .slidev-layout.fact h1 { font-weight: 500; letter-spacing: -0.04em; }
+  & .slidev-layout.fact p { color: var(--muted); }
+
+  & .look .page-number {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
 }
