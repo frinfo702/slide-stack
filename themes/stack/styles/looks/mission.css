@@ -1,0 +1,116 @@
+/* mission — after Porsche Mission S: purist white, a redline, and a continuous wraparound light signature. */
+:where(.slidev-page:has(> .look[data-look="mission"])) {
+  --bg: #f7f7f8;
+  --fg: #010205;
+  --muted: #686a6e;
+  --accent: #d5001c;
+  --line: #d8dade;
+  --surface: #eceef0;
+  --radius: 4px;
+  --font-body: 'Hanken Grotesk', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --font-display: 'Hanken Grotesk', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --display-weight: 600;
+  --display-tracking: -0.025em;
+  --display-case: uppercase;
+  --display-leading: 1.04;
+  --h1: 38px;
+  --hero: 68px;
+  --fact: 156px;
+  --body: 18px;
+  --shiki-token-keyword: #b50018;
+  --shiki-token-string: #3f664f;
+  --shiki-token-function: #010205;
+  --shiki-token-constant: #805500;
+
+  & p, & li { color: #3f4145; }
+  & strong { color: var(--fg); font-weight: 600; }
+  & a { color: var(--fg); text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+  & .slidev-layout { position: relative; }
+  & .slidev-layout.default { padding-top: 72px; }
+  & .slidev-layout.default h1 { max-width: 22ch; }
+
+  /* The light signature wraps around every slide, with one red marker. */
+  & .look::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 32px;
+    right: 32px;
+    height: 12px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  & .look::after {
+    content: '';
+    position: absolute;
+    top: 27px;
+    left: 32px;
+    width: 64px;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  & .slidev-layout:is(.cover, .section, .end) {
+    background:
+      radial-gradient(ellipse 90% 85% at 50% 115%, #24272b 0%, transparent 68%),
+      #010205;
+    & h1 { color: #fafbff; }
+    & p { color: #b7b9bd; }
+  }
+  &:has(.slidev-layout:is(.cover, .section, .end)) .look::before { border-color: #4b4e53; }
+
+  & .slidev-layout.cover {
+    padding-bottom: 72px;
+    & h1 { max-width: 15ch; }
+    & p { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+  }
+
+  & .slidev-layout.fact {
+    justify-content: safe center;
+    overflow: hidden;
+    & h1 { font-weight: 400; letter-spacing: -0.055em; }
+    & p { max-width: 27ch; }
+
+    /* A quiet analogue rev counter, including the red needle. */
+    &::before {
+      content: '';
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: 72px;
+      top: 50%;
+      translate: 0 -50%;
+      border-radius: 50%;
+      background: repeating-conic-gradient(from -120deg, #777a7f 0deg 1deg, transparent 1deg 12deg);
+      -webkit-mask: radial-gradient(circle, transparent 0 96px, #000 97px 103px, transparent 104px);
+      mask: radial-gradient(circle, transparent 0 96px, #000 97px 103px, transparent 104px);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 82px;
+      right: 181px;
+      top: calc(50% - 72px);
+      background: var(--accent);
+      rotate: 38deg;
+      transform-origin: 50% 100%;
+    }
+  }
+
+  & .slidev-layout.quote blockquote { border-left: 3px solid var(--accent); padding-left: 0.7em; }
+  & .slidev-code { border: 1px solid var(--line); }
+  & th { text-transform: uppercase; letter-spacing: 0.04em; }
+
+  & .look .page-number {
+    right: 40px;
+    bottom: 22px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  &:has(.slidev-layout:is(.cover, .section, .end)) .look .page-number { color: #fafbff; }
+}

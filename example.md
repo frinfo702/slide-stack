@@ -8,14 +8,14 @@ look: plain
 
 # Slide Stack
 
-12 looks for Slidev. Set one deck-wide with `themeConfig.look`, or per slide with `look:`.
+13 looks for Slidev. Set one deck-wide with `themeConfig.look`, or per slide with `look:`.
 
 | looks | |
 |---|---|
-| `orbital` · `ledger` · `nightshift` · `grid` | <Link to="2">→ 2</Link> |
-| `cloudflare` · `clay` · `tactical` | <Link to="18">→ 18</Link> |
-| `dotmatrix` · `mono` · `mercury` | <Link to="31">→ 31</Link> |
-| `manuscript` · `plain` | <Link to="43">→ 43</Link> |
+| `orbital` · `mission` · `ledger` · `nightshift` · `grid` | <Link to="2">→ 2</Link> |
+| `cloudflare` · `clay` · `tactical` | <Link to="22">→ 22</Link> |
+| `dotmatrix` · `mono` · `mercury` | <Link to="35">→ 35</Link> |
+| `manuscript` · `plain` | <Link to="47">→ 47</Link> |
 
 ---
 look: orbital
@@ -54,6 +54,43 @@ layout: statement
 ---
 
 # Fly. Land. Refly.
+
+---
+look: mission
+layout: cover
+---
+
+# A sports car.
+
+Authentic. Consequent. Timeless.
+
+---
+look: mission
+---
+
+# Focus on what matters.
+
+- Mid-engine architecture for characteristic proportions
+- Five round instruments with an analogue rev counter
+- Nothing distracts the driver; everything serves a purpose
+
+運転に必要なものだけを、明確に配置する。
+
+---
+look: mission
+layout: fact
+---
+
+# 5
+
+Round instruments. One rev counter at the centre.
+
+---
+look: mission
+layout: statement
+---
+
+# Form follows function.
 
 ---
 look: ledger
