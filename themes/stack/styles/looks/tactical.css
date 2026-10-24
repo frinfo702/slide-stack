@@ -1,4 +1,4 @@
-/* tactical — after Anduril / Palantir: dark field, condensed caps, HUD corners, a ruler that carries the page. */
+/* tactical — after Anduril / Palantir: dark field, condensed caps, a ruler that carries the page. */
 :where(.slidev-page:has(> .look[data-look="tactical"])) {
   --bg: #0d0e0c;
   --fg: #e6e6e0;
@@ -37,21 +37,6 @@
   }
 
   & .slidev-layout.fact h1 { font-family: var(--font-mono); font-weight: 400; letter-spacing: -0.04em; }
-
-  /* HUD corners */
-  & .look {
-    --c: rgb(230 230 224 / 0.5);
-    background:
-      linear-gradient(var(--c), var(--c)) 18px 18px / 18px 1px,
-      linear-gradient(var(--c), var(--c)) 18px 18px / 1px 18px,
-      linear-gradient(var(--c), var(--c)) calc(100% - 18px) 18px / 18px 1px,
-      linear-gradient(var(--c), var(--c)) calc(100% - 18px) 18px / 1px 18px,
-      linear-gradient(var(--c), var(--c)) 18px calc(100% - 18px) / 18px 1px,
-      linear-gradient(var(--c), var(--c)) 18px calc(100% - 18px) / 1px 18px,
-      linear-gradient(var(--c), var(--c)) calc(100% - 18px) calc(100% - 18px) / 18px 1px,
-      linear-gradient(var(--c), var(--c)) calc(100% - 18px) calc(100% - 18px) / 1px 18px;
-    background-repeat: no-repeat;
-  }
 
   /* Ruler along the bottom: one tick per page, the amber marker sits on the current one */
   & .look::after,

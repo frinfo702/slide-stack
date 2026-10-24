@@ -8,14 +8,14 @@ look: plain
 
 # Slide Stack
 
-13 looks for Slidev. Set one deck-wide with `themeConfig.look`, or per slide with `look:`.
+12 looks for Slidev. Set one deck-wide with `themeConfig.look`, or per slide with `look:`.
 
 | looks | |
 |---|---|
 | `orbital` · `ledger` · `nightshift` · `grid` | <Link to="2">→ 2</Link> |
-| `cloudflare` · `clay` · `keynote` · `tactical` | <Link to="18">→ 18</Link> |
-| `dotmatrix` · `mono` · `mercury` | <Link to="35">→ 35</Link> |
-| `manuscript` · `plain` | <Link to="47">→ 47</Link> |
+| `cloudflare` · `clay` · `tactical` | <Link to="18">→ 18</Link> |
+| `dotmatrix` · `mono` · `mercury` | <Link to="31">→ 31</Link> |
+| `manuscript` · `plain` | <Link to="43">→ 43</Link> |
 
 ---
 look: orbital
@@ -290,39 +290,6 @@ layout: quote
 > The goal is not to remove the uncertainty, but to see it clearly.
 
 Lab notebook, entry 214
-
----
-look: keynote
-layout: cover
----
-
-# Thinner. Quieter. Faster.
-
----
-look: keynote
-layout: fact
----
-
-# 22 hrs
-
-of battery life on a single charge
-
----
-look: keynote
-layout: statement
----
-
-# It just disappears.
-
----
-look: keynote
----
-
-# What's inside
-
-- A new chip built for on-device intelligence
-- **40% faster** graphics than the previous generation
-- 一日中使えるバッテリー
 
 ---
 look: tactical
