@@ -8,14 +8,14 @@ look: plain
 
 # Slide Stack
 
-12 looks for Slidev. Set one deck-wide with `themeConfig.look`, or per slide with `look:`.
+13 looks for Slidev. Set one deck-wide with `themeConfig.look`, or per slide with `look:`.
 
 | looks | |
 |---|---|
 | `orbital` · `ledger` · `nightshift` · `grid` | <Link to="2">→ 2</Link> |
 | `cloudflare` · `clay` · `tactical` | <Link to="18">→ 18</Link> |
-| `dotmatrix` · `mono` · `mercury` | <Link to="31">→ 31</Link> |
-| `manuscript` · `plain` | <Link to="43">→ 43</Link> |
+| `dotmatrix` · `mono` · `mercury` · `mission` | <Link to="31">→ 31</Link> |
+| `manuscript` · `plain` | <Link to="47">→ 47</Link> |
 
 ---
 look: orbital
@@ -463,6 +463,43 @@ layout: section
 # Next quarter
 
 採用計画と支出の見通し
+
+---
+look: mission
+layout: cover
+---
+
+# A sports car.
+
+Mission S / Design brief
+
+---
+look: mission
+---
+
+# Focus on what matters
+
+- Five round instruments, an analogue rev counter in the centre
+- Every control within reach of the wheel
+- 運転に集中できるものだけを残す
+
+---
+look: mission
+layout: fact
+---
+
+# 5
+
+Round instruments, with the analogue rev counter at the centre
+
+---
+look: mission
+layout: section
+---
+
+# Form follows function.
+
+The wraparound main line, torpedo-style fenders and mid-engine proportions
 
 ---
 look: manuscript

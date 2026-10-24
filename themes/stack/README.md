@@ -1,6 +1,6 @@
 # @kenichirog/slidev-theme-stack
 
-A [Slidev](https://sli.dev) theme with 12 looks. Pick one for the whole deck, or switch per slide.
+A [Slidev](https://sli.dev) theme with 13 looks. Pick one for the whole deck, or switch per slide.
 The looks echo the visual language of well-known tech brands; no logos or trademarks are included.
 
 ## Install
@@ -26,7 +26,7 @@ layout: fact
 
 ## Looks
 
-`orbital` · `ledger` · `nightshift` · `grid` · `cloudflare` · `clay` · `tactical` · `dotmatrix` · `mono` · `mercury` · `manuscript` · `plain`
+`orbital` · `ledger` · `nightshift` · `grid` · `cloudflare` · `clay` · `tactical` · `dotmatrix` · `mono` · `mercury` · `mission` · `manuscript` · `plain`
 
 ## Sample
 

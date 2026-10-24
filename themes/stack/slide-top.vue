@@ -15,6 +15,7 @@ const label = computed(() => {
   switch (look.value) {
     case 'orbital':
     case 'tactical':
+    case 'mission':
       return `${pad(n)} / ${pad(t)}`
     case 'mono': {
       const filled = Math.round((n / t) * 12)

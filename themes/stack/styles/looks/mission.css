@@ -1,0 +1,127 @@
+/* mission — after Porsche Mission S: studio light, thin grotesque capitals, Guards Red, and black panels for sections. */
+:where(.slidev-page:has(> .look[data-look="mission"])) {
+  --bg: #f4f4f2;
+  --fg: #010205;
+  --muted: #6b6d70;
+  --accent: #d5001c;
+  --line: #dcdcda;
+  --surface: #ebebe9;
+  --radius: 16px;
+  --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+  --font-display: 'Inter Tight', 'Noto Sans JP', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --display-weight: 400;
+  --display-tracking: -0.01em;
+  --display-case: uppercase;
+  --display-leading: 1;
+  --h1: 44px;
+  --hero: 88px;
+  --body: 18px;
+  --fact: 168px;
+  --pad-x: 88px;
+  --pad-y: 64px;
+  --shiki-token-keyword: #d5001c;
+  --shiki-token-string: #4a4a48;
+  --shiki-token-function: #010205;
+
+  & p, & li { color: #3c3e41; }
+  & strong { color: var(--fg); font-weight: 600; }
+  & li::marker { color: var(--accent); }
+  & img { border-radius: var(--radius); }
+  & hr { border-top-color: var(--line); }
+
+  /* Hairline-separated list, like a spec sheet */
+  & ul { list-style: none; padding-left: 0; }
+  & ul > li { padding: 0.6em 0; border-top: 1px solid var(--line); }
+  & ul > li::marker { content: ''; }
+
+  & blockquote {
+    border-left: 3px solid var(--accent);
+    font-family: var(--font-display);
+    font-size: 1.15em;
+    line-height: 1.35;
+  }
+
+  & .slidev-code { border: 1px solid var(--line); border-radius: calc(var(--radius) / 2); }
+
+  & th {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  & :is(th, td) { padding: 0.65em 0.9em 0.65em 0; }
+  & tr:last-child td { border-bottom: 0; }
+
+  /* Studio backdrop, hero type set low and wide */
+  & .slidev-layout.cover {
+    background:
+      radial-gradient(ellipse 130% 58% at 50% 116%, #d7d7d4 0%, #efefed 55%, transparent 62%),
+      linear-gradient(#fbfbfa, #f4f4f2);
+    & h1 {
+      font-size: var(--hero);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 0.94;
+      max-width: none;
+    }
+    & p {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  }
+
+  /* Black panel, bold capitals: the brand's section break */
+  & .slidev-layout:is(.section, .statement) {
+    background: #0b0b0c;
+    & h1 {
+      color: #fff;
+      font-size: 64px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      max-width: 16ch;
+    }
+    & p { color: rgb(255 255 255 / 0.64); }
+  }
+
+  & .slidev-layout.fact {
+    & h1 {
+      font-size: var(--fact);
+      font-weight: 300;
+      letter-spacing: -0.055em;
+      line-height: 0.88;
+    }
+    & p { font-size: 1.05em; max-width: 26ch; }
+  }
+
+  & .slidev-layout.quote blockquote { font-size: 40px; border: 0; }
+  & .slidev-layout.end h1 { font-weight: 300; letter-spacing: -0.02em; }
+
+  /* Guards Red progress line along the bottom edge */
+  & .look::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: calc(var(--step) * 100%);
+    background: var(--accent);
+  }
+
+  & .look .page-number {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    right: 40px;
+    bottom: 26px;
+  }
+
+  &:has(.slidev-layout:is(.section, .statement)) .look .page-number { color: rgb(255 255 255 / 0.72); }
+}
