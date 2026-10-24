@@ -10,12 +10,12 @@ look: plain
 
 13 looks for Slidev. Set one deck-wide with `themeConfig.look`, or per slide with `look:`.
 
-| look | 参考 | |
-|---|---|---|
-| `orbital` · `ledger` · `nightshift` · `grid` | SpaceXAI · Ramp · Linear · Vercel | <Link to="2">→ 2</Link> |
-| `cloudflare` · `clay` · `keynote` · `tactical` | Cloudflare · Anthropic · Apple · Anduril | <Link to="18">→ 18</Link> |
-| `dotmatrix` · `mono` · `mercury` | Nothing · paper.design/mono · Mercury | <Link to="34">→ 34</Link> |
-| `manuscript` · `plain` | 論文紹介 · 汎用 | <Link to="46">→ 46</Link> |
+| looks | |
+|---|---|
+| `orbital` · `ledger` · `nightshift` · `grid` | <Link to="2">→ 2</Link> |
+| `cloudflare` · `clay` · `keynote` · `tactical` | <Link to="18">→ 18</Link> |
+| `dotmatrix` · `mono` · `mercury` | <Link to="35">→ 35</Link> |
+| `manuscript` · `plain` | <Link to="47">→ 47</Link> |
 
 ---
 look: orbital
@@ -274,6 +274,16 @@ Sparse autoencoders trained on the residual stream
 
 ---
 look: clay
+layout: section
+class: heather
+---
+
+# Results
+
+解釈可能性の評価へ
+
+---
+look: clay
 layout: quote
 ---
 
@@ -522,7 +532,7 @@ look: manuscript
 
 <figure>
 
-| Model | EN-DE BLEU | EN-FR BLEU |
+| モデル / Model | EN-DE BLEU | EN-FR BLEU |
 |---|---|---|
 | ConvS2S | 25.16 | 40.46 |
 | Transformer (base) | 27.3 | 38.1 |
@@ -530,6 +540,19 @@ look: manuscript
 
 <figcaption>WMT 2014 での BLEU スコア。原論文 Table 2 より抜粋。</figcaption>
 </figure>
+
+---
+look: manuscript
+---
+
+# 注意機構の定義
+
+$$
+\operatorname{Attention}(Q, K, V)
+= \operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V
+$$
+
+インラインの数式も使える。$d_k = 64$、ヘッド数 $h = 8$。$\sqrt{d_k}$ で割ることで、内積が大きくなりすぎて softmax が飽和するのを防ぐ。
 
 ---
 look: manuscript

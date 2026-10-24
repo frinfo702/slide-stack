@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { useIsSlideActive, useSlideContext } from '@slidev/client'
+import { useIsSlideActive, useNav, useSlideContext } from '@slidev/client'
 import { onBeforeUnmount, ref, watch } from 'vue'
 
 const props = withDefaults(defineProps<{ text: string, duration?: number }>(), { duration: 900 })
 
 const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/<>_'
 const { $renderContext } = useSlideContext()
+const { isPrintMode } = useNav()
 const active = useIsSlideActive()
 const shown = ref(props.text)
 let raf = 0
@@ -13,7 +14,7 @@ let raf = 0
 // Characters settle left to right; spaces stay put so the line never reflows.
 function run() {
   cancelAnimationFrame(raf)
-  if ($renderContext.value !== 'slide' || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if ($renderContext.value !== 'slide' || isPrintMode.value || matchMedia('(prefers-reduced-motion: reduce)').matches) {
     shown.value = props.text
     return
   }
