@@ -45,8 +45,8 @@
   & .look::after { left: calc(100% - 40px); top: calc(100% - 40px); }
 
   & ul { list-style: none; padding-left: 0; }
-  & ul > li { padding-left: 1.1em; position: relative; }
-  & ul > li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+  & ul > li { padding-left: 1.1em; }
+  & ul > li::before { content: '–'; display: inline-block; width: 1.1em; margin-left: -1.1em; color: var(--muted); }
   & p, & li { color: #4d4d4d; }
   & strong { color: var(--fg); font-weight: 600; }
   & .slidev-code { border: 1px solid var(--line); }

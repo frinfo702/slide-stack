@@ -22,8 +22,8 @@
 
   & p, & li { color: #b7b8b0; }
   & ul { list-style: none; padding-left: 0; }
-  & ul > li { padding-left: 1.2em; position: relative; }
-  & ul > li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+  & ul > li { padding-left: 1.2em; }
+  & ul > li::before { content: '›'; display: inline-block; width: 1.2em; margin-left: -1.2em; color: var(--accent); }
   & strong { color: var(--fg); }
   & .slidev-code { border-left: 2px solid var(--accent); }
   & th { font-family: var(--font-mono); font-weight: 400; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
