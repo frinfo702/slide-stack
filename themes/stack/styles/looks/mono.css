@@ -44,8 +44,8 @@
   }
 
   & ul { list-style: none; padding-left: 0; }
-  & ul > li { padding-left: 2ch; position: relative; }
-  & ul > li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+  & ul > li { padding-left: 2ch; }
+  & ul > li::before { content: '→'; display: inline-block; width: 2ch; margin-left: -2ch; color: var(--accent); }
   & strong { font-weight: 600; }
 
   /* Windows */
