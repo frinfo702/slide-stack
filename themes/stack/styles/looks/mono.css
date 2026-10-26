@@ -85,5 +85,6 @@
     font-size: 11px;
     color: var(--accent);
     bottom: 16px;
+    right: 44px; /* clear of the right column guide at 32px */
   }
 }
